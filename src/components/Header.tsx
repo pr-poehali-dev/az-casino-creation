@@ -8,9 +8,9 @@ const Header = () => {
         <img 
           src="/img/27b2eb13-94bb-4124-bb0a-91ea58178bdd.jpg" 
           alt="Vavada Casino Header"
-          className="w-full h-full object-cover opacity-10"
+          className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-background/90 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-background/70"></div>
       </div>
       <div className="container mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center justify-between">
