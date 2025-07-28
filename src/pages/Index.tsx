@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
@@ -40,28 +41,24 @@ const Index = () => {
     }
   ];
 
-  const bonuses = [
-    {
-      title: "Xoş Gəlmisiniz Bonusu",
-      description: "İlk depozitə 100% bonus",
-      amount: "100%",
-      code: "WELCOME",
-      extra: "+ 250 Pulsuz Spin"
-    },
-    {
-      title: "Həftəlik Cashback",
-      description: "İtirilmiş məbləğdən geri qaytarma",
-      amount: "15%",
-      code: "CASHBACK",
-      extra: "Həftəlik ödəniş"
-    },
-    {
-      title: "VIP Proqram",
-      description: "Loyallıq proqramı - 6 səviyyə",
-      amount: "3%-ə qədər",
-      code: "VIP",
-      extra: "Eksklüziv statuslar"
-    }
+  const providers = [
+    { name: "NetEnt", games: "200+" },
+    { name: "Microgaming", games: "150+" },
+    { name: "Igrosoft", games: "80+" },
+    { name: "Novomatic", games: "120+" },
+    { name: "Play'n Go", games: "90+" },
+    { name: "Endorphina", games: "70+" },
+    { name: "Evolution Gaming", games: "50+" },
+    { name: "NextGen Gaming", games: "60+" }
+  ];
+
+  const vipLevels = [
+    { status: "Başlanğıc", turnover: "$0", cashback: "0%", bonuses: "Standart bonuslar" },
+    { status: "Oyunçu", turnover: "$15", cashback: "0.5%", bonuses: "Əlavə təkliflər" },
+    { status: "Bürünc", turnover: "$250", cashback: "1%", bonuses: "Eksklüziv bonuslar" },
+    { status: "Gümüş", turnover: "$4,000", cashback: "1.5%", bonuses: "250 pulsuz spin" },
+    { status: "Qızıl", turnover: "$8,000", cashback: "2%", bonuses: "VIP təkliflər" },
+    { status: "Platinum", turnover: "$50,000", cashback: "3%", bonuses: "Eksklüziv VIP status" }
   ];
 
   const reviews = [
@@ -85,15 +82,23 @@ const Index = () => {
     }
   ];
 
-  const providers = [
-    { name: "NetEnt", games: "200+" },
-    { name: "Microgaming", games: "150+" },
-    { name: "Igrosoft", games: "80+" },
-    { name: "Novomatic", games: "120+" },
-    { name: "Play'n Go", games: "90+" },
-    { name: "Endorphina", games: "70+" },
-    { name: "Evolution Gaming", games: "50+" },
-    { name: "NextGen Gaming", games: "60+" }
+  const faqs = [
+    {
+      question: "Vavada casino təhlükəsizlimi?",
+      answer: "Bəli, Vavada casino Curacao lisenziyası ilə fəaliyyət göstərir və SSL şifrələmə istifadə edir."
+    },
+    {
+      question: "Bonusları necə əldə edə bilərəm?",
+      answer: "Qeydiyyatdan sonra avtomatik olaraq xoş gəlmisiniz bonusu aktivləşir. Digər bonuslar üçün promosyonlar bölməsinə baxın."
+    },
+    {
+      question: "Pul çıxarma nə qədər vaxt alır?",
+      answer: "Adətən 24 saat ərzində emal edilir. Bəzi ödəniş üsulları daha sürətli ola bilər."
+    },
+    {
+      question: "Mobil cihazlarda oyun mövcuddur?",
+      answer: "Bəli, mobil brauzerdən bütün oyunlara tam çıxış əldə edə bilərsiniz."
+    }
   ];
 
   return (
@@ -111,10 +116,11 @@ const Index = () => {
               </Badge>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">Haqqında</a>
               <a href="#games" className="text-muted-foreground hover:text-primary transition-colors">Oyunlar</a>
               <a href="#bonuses" className="text-muted-foreground hover:text-primary transition-colors">Bonuslar</a>
               <a href="#mobile" className="text-muted-foreground hover:text-primary transition-colors">Mobil</a>
-              <a href="#reviews" className="text-muted-foreground hover:text-primary transition-colors">Rəylər</a>
+              <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">Dəstək</a>
             </nav>
             <div className="flex items-center space-x-3">
               <Button variant="outline" size="sm">Giriş</Button>
@@ -126,19 +132,17 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - H1 */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             <span className="bg-gradient-to-r from-primary via-gold-400 to-accent bg-clip-text text-transparent">
-              VAVADA
+              Vavada Casino Azərbaycan - Rəsmi Onlayn Kazino
             </span>
-            <br />
-            <span className="text-3xl md:text-4xl text-muted-foreground">Casino Azərbaycan</span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto animate-fade-in">
-            2010-cu ildən bəri fəaliyyət göstərən lisenziyalı kazino. 1500+ oyun, Curacao lisenziyası və 24/7 dəstək.
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
+            Lisenziyalı kazino, 100% xoş gəlmisiniz bonusu və 1500+ oyun
           </p>
           <div className="flex justify-center items-center gap-6 mb-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
@@ -167,15 +171,62 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Providers Section */}
-      <section className="py-16 bg-card/20">
+      {/* About Section - H2 */}
+      <section id="about" className="py-16 bg-card/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Vavada Casino Haqqında
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Vavada kazino oyunları oynamaq üçün etibarlı onlayn platformadır. 2010-cu ildə yaradılmış bu kazino, 
+              8048/JAZ Curacao lisenziyası əsasında fəaliyyət göstərir və milyonlarla oyunçunun güvənini qazanmışdır. 
+              Vavada kazinosunun rəsmi veb-saytı unikal dizaynı və dünyanın aparıcı oyun proqram təminatı 
+              istehsalçılarının geniş kataloqunu təklif edir.
+            </p>
+          </div>
+
+          {/* Advantages - H3 */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-center text-foreground">
+              Əsas Üstünlüklər
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="bg-card border-border/50 text-center p-6">
+                <Icon name="ShieldCheck" size={48} className="mx-auto mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">Curacao lisenziyası ilə qanuni fəaliyyət</h4>
+              </Card>
+              <Card className="bg-card border-border/50 text-center p-6">
+                <Icon name="Gamepad2" size={48} className="mx-auto mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">1500-dən çox oyun növü</h4>
+              </Card>
+              <Card className="bg-card border-border/50 text-center p-6">
+                <Icon name="Headphones" size={48} className="mx-auto mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">24/7 texniki dəstək</h4>
+              </Card>
+              <Card className="bg-card border-border/50 text-center p-6">
+                <Icon name="Zap" size={48} className="mx-auto mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">Sürətli ödənişlər və çıxarışlar</h4>
+              </Card>
+              <Card className="bg-card border-border/50 text-center p-6">
+                <Icon name="Smartphone" size={48} className="mx-auto mb-4 text-primary" />
+                <h4 className="font-semibold mb-2">Mobil cihazlarda tam funksionallıq</h4>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Providers Section - H2 */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
               Oyun Proqram Təminatı İstehsalçıları
             </h2>
-            <p className="text-muted-foreground">
-              Dünyanın ən məşhur və etibarlı oyun proqram təminatı istehsalçıları
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada kazinosunda dünyanın ən məşhur və etibarlı oyun proqram təminatı istehsalçılarının məhsulları təqdim edilir. 
+              Hər bir oyun təsadüfi rəqəmlər generatoru ilə təsdiqlənib və ədalətli oyun təmin edilir.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
@@ -189,193 +240,247 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Games Section */}
-      <section id="games" className="py-16">
+      {/* Registration Section - H2 */}
+      <section className="py-16 bg-card/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-gold-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Vavada Casino Qeydiyyat Prosesi
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada kazinosunda qeydiyyat prosesi sadə və sürətlidir. Yalnız bir neçə dəqiqə ərzində hesab yaradaraq 
+              bütün oyunlara və bonuslara çıxış əldə edə bilərsiniz.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card className="text-center p-6 bg-card border-border/50">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary-foreground font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Əlaqə Məlumatları</h3>
+              <p className="text-muted-foreground">
+                Telefon nömrəsi və ya e-poçt ünvanı daxil edin. Təsdiqlənmə kodu alacaqsınız.
+              </p>
+            </Card>
+            
+            <Card className="text-center p-6 bg-card border-border/50">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary-foreground font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Güclü Parol</h3>
+              <p className="text-muted-foreground">
+                Hesabınızın təhlükəsizliyi üçün güclü parol yaradın.
+              </p>
+            </Card>
+            
+            <Card className="text-center p-6 bg-card border-border/50">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary-foreground font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-foreground">Valyuta Seçimi</h3>
+              <p className="text-muted-foreground">
+                Əlverişli valyuta seçin. Azərbaycan manatı (AZN) da dəstəklənir.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Bonuses Section - H2 */}
+      <section id="bonuses" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-gold-400 to-accent bg-clip-text text-transparent">
+              Vavada Casino Bonusları və Təkliflər
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center p-8 bg-gradient-to-br from-primary/10 to-gold-400/10 border-primary/30">
+              <div className="text-6xl font-bold text-primary mb-2">100%</div>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">Xoş Gəlmisiniz Bonusu</h3>
+              <p className="text-muted-foreground">İlk depozitə bonus</p>
+            </Card>
+            
+            <Card className="text-center p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-accent/30">
+              <div className="text-6xl font-bold text-accent mb-2">250</div>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">Pulsuz Spinlər</h3>
+              <p className="text-muted-foreground">Qeydiyyat bonusu</p>
+            </Card>
+            
+            <Card className="text-center p-8 bg-gradient-to-br from-gold-400/10 to-accent/10 border-gold-400/30">
+              <div className="text-6xl font-bold text-gold-400 mb-2">15%</div>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">Həftəlik Cashback</h3>
+              <p className="text-muted-foreground">İtirilmiş məbləğdən</p>
+            </Card>
+          </div>
+
+          {/* VIP Program - H3 */}
+          <div>
+            <h3 className="text-3xl font-bold mb-8 text-center text-foreground">
+              Oyunçu Statusları və VIP Proqramı
+            </h3>
+            <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Vavada kazinosunda loyallıq proqramı oyunçuların fəaliyyətini mükafatlandırır. 
+              Hər yeni səviyyə ilə cashback artır və eksklüziv bonuslar açılır.
+            </p>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-card rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-primary/10">
+                    <th className="p-4 text-left font-semibold">Status</th>
+                    <th className="p-4 text-left font-semibold">Dövriyyə</th>
+                    <th className="p-4 text-left font-semibold">Cashback</th>
+                    <th className="p-4 text-left font-semibold">Əlavə Bonuslar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {vipLevels.map((level, index) => (
+                    <tr key={index} className="border-t border-border/20">
+                      <td className="p-4 font-medium">{level.status}</td>
+                      <td className="p-4 text-muted-foreground">{level.turnover}</td>
+                      <td className="p-4 text-primary font-semibold">{level.cashback}</td>
+                      <td className="p-4 text-muted-foreground">{level.bonuses}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Games Section - H2 */}
+      <section id="games" className="py-16 bg-card/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Vavada Casino Oyunları
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada kazinosunda 1500-dən çox oyun növü mövcuddur. Hər oyun demo rejimində pulsuz test edilə bilər. 
+              Oyunlar kategorialar üzrə təsnif edilib və axtarış funksiyası ilə asanlıqla tapıla bilər.
+            </p>
+          </div>
+
+          {/* Popular Slots - H3 */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-primary to-gold-400 bg-clip-text text-transparent">
               Ən Populyar Slot Oyunları
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Yüksək RTP ilə ən çox oynanan slotlar
-            </p>
-          </div>
-          
-          <Tabs defaultValue="slots" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="slots">
-                <Icon name="Zap" className="mr-2" />
-                Slotlar
-              </TabsTrigger>
-              <TabsTrigger value="table">
-                <Icon name="Dice1" className="mr-2" />
-                Stolüstü
-              </TabsTrigger>
-              <TabsTrigger value="live">
-                <Icon name="Video" className="mr-2" />
-                Canlı Kazino
-              </TabsTrigger>
-            </TabsList>
+            </h3>
             
-            <TabsContent value="slots">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {slots.map((slot) => (
-                  <Card key={slot.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in bg-card border-border/50">
-                    <div className="relative overflow-hidden rounded-t-lg">
-                      <img 
-                        src={slot.image} 
-                        alt={slot.name}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute top-2 right-2">
-                        <Badge className="bg-primary/90 text-primary-foreground">
-                          RTP {slot.rtp}
-                        </Badge>
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {slots.map((slot) => (
+                <Card key={slot.id} className="group hover:shadow-xl transition-all duration-300 animate-fade-in bg-card border-border/50">
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img 
+                      src={slot.image} 
+                      alt={slot.name}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <Badge className="bg-primary/90 text-primary-foreground">
+                        RTP {slot.rtp}
+                      </Badge>
                     </div>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{slot.name}</CardTitle>
-                      <CardDescription className="text-sm text-muted-foreground">
-                        {slot.provider}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <p className="text-sm text-muted-foreground mb-3">
-                          {slot.description}
-                        </p>
-                        <div className="flex text-gold-400 justify-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Icon key={i} name="Star" size={14} className="fill-current" />
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="flex-1">
-                          Demo
-                        </Button>
-                        <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
-                          <Icon name="Play" className="mr-1" size={14} />
-                          Oyna
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="table">
-              <div className="text-center py-16">
-                <Icon name="Dice1" size={64} className="mx-auto mb-4 text-primary" />
-                <h3 className="text-2xl font-bold mb-2">Stolüstü Oyunlar</h3>
-                <p className="text-muted-foreground">Blackjack, Rulet, Baccarat və digər klassik stolüstü oyunlar</p>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="live">
-              <div className="text-center py-16">
-                <Icon name="Video" size={64} className="mx-auto mb-4 text-accent" />
-                <h3 className="text-2xl font-bold mb-2">Canlı Kazino</h3>
-                <p className="text-muted-foreground">Evolution Gaming tərəfindən təqdim edilən professional dilerlərlə canlı oyunlar</p>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-
-      {/* Bonuses Section */}
-      <section id="bonuses" className="py-16 bg-card/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-gold-400 to-accent bg-clip-text text-transparent">
-              Bonuslar və Təkliflər
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Xoş Gəlmisiniz Bonusu və VIP Loyallıq Proqramı
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {bonuses.map((bonus, index) => (
-              <Card key={index} className="relative overflow-hidden animate-fade-in bg-gradient-to-br from-card to-card/50 border-primary/30">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-transparent rounded-full -mr-12 -mt-12"></div>
-                <CardHeader>
-                  <CardTitle className="text-xl text-primary">{bonus.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {bonus.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <div className="text-3xl font-bold text-gold-400 mb-2">
-                      {bonus.amount}
-                    </div>
-                    <div className="text-sm text-muted-foreground mb-2">
-                      {bonus.extra}
-                    </div>
-                    <Badge variant="outline" className="border-primary/30 text-primary">
-                      {bonus.code}
-                    </Badge>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-primary to-gold-500 hover:from-primary/90 hover:to-gold-400">
-                    <Icon name="Gift" className="mr-2" size={16} />
-                    Bonus Al
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">{slot.name}</CardTitle>
+                    <CardDescription className="text-sm text-muted-foreground">
+                      {slot.provider}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {slot.description}
+                      </p>
+                      <div className="flex text-gold-400 justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon key={i} name="Star" size={14} className="fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" className="flex-1">
+                        Demo
+                      </Button>
+                      <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                        <Icon name="Play" className="mr-1" size={14} />
+                        Oyna
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mobile Section */}
+      {/* Mobile Section - H2 */}
       <section id="mobile" className="py-16">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Mobil Vavada Casino
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada kazinosunun mobil versiyası bütün funksiyaları dəstəkləyir. 
+              Əlavə proqram yükləmədən brauzerdən istifadə edə bilərsiniz.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Mobil Vavada Casino
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6">
-                Bütün funksiyaları dəstəkləyən mobil versiya. Əlavə proqram yükləmədən 
-                brauzerinizlə istifadə edə bilərsiniz.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <Icon name="Smartphone" className="text-primary" />
-                  <span>Bütün oyunlara tam çıxış</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Zap" className="text-primary" />
-                  <span>Sürətli qeydiyyat və giriş</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Gift" className="text-primary" />
-                  <span>Mobil bonuslar</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Monitor" className="text-primary" />
-                  <span>Responsiv dizayn</span>
-                </div>
+            <div>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <Card className="text-center p-4 bg-card border-border/50">
+                  <Icon name="Smartphone" className="mx-auto mb-2 text-primary" size={32} />
+                  <p className="text-sm font-medium">Bütün oyunlara tam çıxış</p>
+                </Card>
+                <Card className="text-center p-4 bg-card border-border/50">
+                  <Icon name="Zap" className="mx-auto mb-2 text-primary" size={32} />
+                  <p className="text-sm font-medium">Sürətli qeydiyyat və giriş</p>
+                </Card>
+                <Card className="text-center p-4 bg-card border-border/50">
+                  <Icon name="Gift" className="mx-auto mb-2 text-primary" size={32} />
+                  <p className="text-sm font-medium">Mobil bonuslar</p>
+                </Card>
+                <Card className="text-center p-4 bg-card border-border/50">
+                  <Icon name="Monitor" className="mx-auto mb-2 text-primary" size={32} />
+                  <p className="text-sm font-medium">Responsiv dizayn</p>
+                </Card>
               </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                <Icon name="Download" className="mr-2" />
-                Mobil Versiyaya Keç
-              </Button>
             </div>
             
-            <div className="relative animate-scale-in">
-              <div className="bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-3xl p-8 text-center">
-                <Icon name="Smartphone" size={120} className="mx-auto mb-6 text-primary" />
-                <h3 className="text-2xl font-bold mb-4">6 Addımda Qeydiyyat</h3>
-                <div className="text-left space-y-2 text-sm text-muted-foreground">
-                  <div>1. Mobil brauzerdən sayta daxil olun</div>
-                  <div>2. Qeydiyyat düyməsini basın</div>
-                  <div>3. Telefon və ya e-poçt daxil edin</div>
-                  <div>4. Güclü parol yaradın</div>
-                  <div>5. Valyuta seçin (AZN dəstəklənir)</div>
-                  <div>6. Qeydiyyatı tamamlayın</div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Mobil Qeydiyyat Addımları</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">1</div>
+                  <p className="text-muted-foreground">Mobil brauzerdən sayta daxil olun</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">2</div>
+                  <p className="text-muted-foreground">Qeydiyyat düyməsini basın</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">3</div>
+                  <p className="text-muted-foreground">Telefon nömrəsi və ya e-poçt daxil edin</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">4</div>
+                  <p className="text-muted-foreground">Güclü parol yaradın</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">5</div>
+                  <p className="text-muted-foreground">Valyuta seçin</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">6</div>
+                  <p className="text-muted-foreground">Qeydiyyatı tamamlayın</p>
                 </div>
               </div>
             </div>
@@ -383,59 +488,190 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Support Section */}
-      <section className="py-16 bg-card/30">
+      {/* Support Section - H2 */}
+      <section id="support" className="py-16 bg-card/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
               Texniki Dəstək Xidməti
             </h2>
-            <p className="text-muted-foreground text-lg">
-              24/7 xidmət göstərən professional dəstək komandası
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada casino texniki dəstək komandası 24/7 xidmət göstərir. 
+              Hər hansı sualınız və ya problemləriniz olduqda dərhal kömək ala bilərsiniz.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <Card className="text-center p-6 bg-card border-border/50">
               <Icon name="MessageCircle" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">Canlı Söhbət</h3>
-              <p className="text-sm text-muted-foreground mb-2">Orta cavab müddəti</p>
+              <h3 className="font-semibold mb-2 text-foreground">Canlı Söhbət</h3>
+              <p className="text-sm text-muted-foreground mb-2">Orta cavab müddəti:</p>
               <p className="text-primary font-semibold">2-3 dəqiqə</p>
             </Card>
             
             <Card className="text-center p-6 bg-card border-border/50">
               <Icon name="Mail" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">E-poçt Dəstəyi</h3>
-              <p className="text-sm text-muted-foreground mb-2">Cavab müddəti</p>
-              <p className="text-primary font-semibold">24 saat</p>
+              <h3 className="font-semibold mb-2 text-foreground">E-poçt Dəstəyi</h3>
+              <p className="text-sm text-muted-foreground mb-2">Cavab müddəti:</p>
+              <p className="text-primary font-semibold">24 saat ərzində</p>
             </Card>
             
             <Card className="text-center p-6 bg-card border-border/50">
               <Icon name="Phone" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">Telefon Dəstəyi</h3>
-              <p className="text-sm text-muted-foreground mb-2">Qaynar xətt</p>
-              <p className="text-primary font-semibold">24/7 aktiv</p>
+              <h3 className="font-semibold mb-2 text-foreground">Telefon Dəstəyi</h3>
+              <p className="text-sm text-muted-foreground mb-2">Qaynar xətt:</p>
+              <p className="text-primary font-semibold">24/7 aktivdir</p>
             </Card>
             
             <Card className="text-center p-6 bg-card border-border/50">
               <Icon name="HelpCircle" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">FAQ Bölməsi</h3>
-              <p className="text-sm text-muted-foreground mb-2">Cavablar</p>
-              <p className="text-primary font-semibold">Dərhal</p>
+              <h3 className="font-semibold mb-2 text-foreground">FAQ Bölməsi</h3>
+              <p className="text-sm text-muted-foreground mb-2">Çox verilən suallar</p>
+              <p className="text-primary font-semibold">Dərhal cavab</p>
+            </Card>
+          </div>
+
+          {/* Supported Languages - H3 */}
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-6 text-foreground">Dəstəklənən Dillər</h3>
+            <div className="flex justify-center flex-wrap gap-4">
+              <Badge variant="outline" className="px-4 py-2">Azərbaycanca</Badge>
+              <Badge variant="outline" className="px-4 py-2">Türkçe</Badge>
+              <Badge variant="outline" className="px-4 py-2">Русский</Badge>
+              <Badge variant="outline" className="px-4 py-2">English</Badge>
+              <Badge variant="outline" className="px-4 py-2">Deutsch</Badge>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Payment Methods - H2 */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Ödəniş Üsulları və Çıxarış
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Depozit Üsulları</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <Icon name="CreditCard" className="text-primary" />
+                  <span>Banka kartları (Visa, Mastercard)</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <Icon name="Smartphone" className="text-primary" />
+                  <span>Mobil ödənişlər</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <Icon name="Building" className="text-primary" />
+                  <span>Bank köçürmələri</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <Icon name="Coins" className="text-primary" />
+                  <span>Kriptovalyutalar</span>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Çıxarış Şərtləri</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between p-4 bg-card rounded-lg border border-border/50">
+                  <span className="text-muted-foreground">Emal vaxtı:</span>
+                  <span className="font-semibold">24 saat</span>
+                </div>
+                <div className="flex justify-between p-4 bg-card rounded-lg border border-border/50">
+                  <span className="text-muted-foreground">Minimum çıxarış:</span>
+                  <span className="font-semibold">$10</span>
+                </div>
+                <div className="flex justify-between p-4 bg-card rounded-lg border border-border/50">
+                  <span className="text-muted-foreground">Təhlükəsiz prosessinq:</span>
+                  <span className="font-semibold text-primary">✓</span>
+                </div>
+                <div className="flex justify-between p-4 bg-card rounded-lg border border-border/50">
+                  <span className="text-muted-foreground">Komissiya:</span>
+                  <span className="font-semibold text-primary">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Section - H2 */}
+      <section className="py-16 bg-card/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Təhlükəsizlik və Lisenziya
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vavada casino 8048/JAZ Curacao lisenziyası əsasında fəaliyyət göstərir. 
+              Bütün məlumatlar SSL şifrələmə ilə qorunur və oyunçuların təhlükəsizliyi prioritetdir.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center p-8 bg-gradient-to-br from-primary/10 to-transparent border-primary/30">
+              <Icon name="Shield" size={64} className="mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-semibold mb-2 text-foreground">Lisenziya</h3>
+              <p className="text-muted-foreground">Curacao eGaming</p>
+            </Card>
+            
+            <Card className="text-center p-8 bg-gradient-to-br from-accent/10 to-transparent border-accent/30">
+              <Icon name="Lock" size={64} className="mx-auto mb-4 text-accent" />
+              <h3 className="text-xl font-semibold mb-2 text-foreground">SSL Şifrələmə</h3>
+              <p className="text-muted-foreground">256-bit qoruma</p>
+            </Card>
+            
+            <Card className="text-center p-8 bg-gradient-to-br from-gold-400/10 to-transparent border-gold-400/30">
+              <Icon name="CheckCircle" size={64} className="mx-auto mb-4 text-gold-400" />
+              <h3 className="text-xl font-semibold mb-2 text-foreground">RNG Sertifikası</h3>
+              <p className="text-muted-foreground">Təsdiqlənmiş ədalətli oyun</p>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section id="reviews" className="py-16">
+      {/* FAQ Section - H2 */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Tez-tez Verilən Suallar
+            </h2>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 rounded-lg px-6">
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section - H2 */}
+      <section className="py-16 bg-card/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
               Oyunçu Rəyləri
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Minlərlə oyunçu Vavada casino ilə öz təcrübələrini bölüşür
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Minlərlə oyunçu Vavada casino ilə öz təcrübələrini bölüşür və kazinonu tövsiyə edir.
             </p>
           </div>
           
@@ -467,64 +703,31 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-card border-t border-border">
         <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-gold-400 bg-clip-text text-transparent">
-                VAVADA
+          <div className="text-center mb-8">
+            <div className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-gold-400 bg-clip-text text-transparent">
+              Vavada Casino - Etibarlı Oyun Təcrübəsi
+            </div>
+            <p className="text-muted-foreground mb-4">
+              2010-cu ildən bəri milyonlarla oyunçunun güvəndiyi onlayn kazino
+            </p>
+            <div className="flex justify-center gap-8 text-sm">
+              <div className="flex items-center gap-2">
+                <Icon name="Shield" size={16} className="text-primary" />
+                <span>Lisenziyalı</span>
               </div>
-              <p className="text-muted-foreground text-sm mb-4">
-                2010-cu ildən bəri milyonlarla oyunçunun güvəndiyi onlayn kazino
-              </p>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Icon name="Shield" size={14} />
-                  <span>Lisenziyalı</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Lock" size={14} />
-                  <span>Təhlükəsiz</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Clock" size={14} />
-                  <span>24/7 Dəstək</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Lock" size={16} className="text-primary" />
+                <span>Təhlükəsiz</span>
               </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-foreground">Oyunlar</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Slot Maşınları</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Stolüstü Oyunlar</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Canlı Kazino</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Jackpot Oyunları</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-foreground">Ödəniş Üsulları</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Banka Kartları</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Mobil Ödəniş</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Bank Köçürmə</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Kriptovalyuta</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-foreground">Dəstəklənən Dillər</h4>
-              <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-                <div>Azərbaycanca</div>
-                <div>Türkçe</div>
-                <div>Русский</div>
-                <div>English</div>
+              <div className="flex items-center gap-2">
+                <Icon name="Clock" size={16} className="text-primary" />
+                <span>24/7 Dəstək</span>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Vavada Casino. Bütün hüquqlar qorunur. 18+ Məsuliyyətlə oynayın.</p>
-            <p className="mt-2">Curacao eGaming 8048/JAZ lisenziyası • SSL 256-bit şifrələmə • RNG sertifikası</p>
+          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+            <p>&copy; 2025 Vavada Casino. Məsuliyyətlə oynayın. 18+</p>
           </div>
         </div>
       </footer>
