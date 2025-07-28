@@ -3,8 +3,16 @@ import { Badge } from "@/components/ui/badge";
 
 const Header = () => {
   return (
-    <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="relative border-b border-border sticky top-0 z-50 overflow-hidden">
+      <div className="absolute inset-0">
+        <img 
+          src="/img/27b2eb13-94bb-4124-bb0a-91ea58178bdd.jpg" 
+          alt="Vavada Casino Header"
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-sm"></div>
+      </div>
+      <div className="container mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="text-3xl font-bold bg-gradient-to-r from-primary to-gold-400 bg-clip-text text-transparent">
