@@ -6,9 +6,9 @@ const Header = () => {
     <header className="relative border-b border-border sticky top-0 z-50 overflow-hidden">
       <div className="absolute inset-0">
         <img 
-          src="/img/27b2eb13-94bb-4124-bb0a-91ea58178bdd.jpg" 
+          src="/img/3dee1425-a1a3-41e8-8190-199ec5410858.jpg" 
           alt="Vavada Casino Header"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
       </div>
