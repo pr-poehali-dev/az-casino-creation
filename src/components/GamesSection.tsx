@@ -39,14 +39,14 @@ const slots = [
 ];
 
 const providers = [
-  { name: "NetEnt", games: "200+" },
-  { name: "Microgaming", games: "150+" },
-  { name: "Igrosoft", games: "80+" },
-  { name: "Novomatic", games: "120+" },
-  { name: "Play'n Go", games: "90+" },
-  { name: "Endorphina", games: "70+" },
-  { name: "Evolution Gaming", games: "50+" },
-  { name: "NextGen Gaming", games: "60+" }
+  { name: "NetEnt", games: "200+ oyun", icon: "Diamond", color: "text-blue-500" },
+  { name: "Microgaming", games: "150+ oyun", icon: "Gem", color: "text-green-500" },
+  { name: "Igrosoft", games: "80+ oyun", icon: "Trophy", color: "text-orange-500" },
+  { name: "Novomatic", games: "120+ oyun", icon: "Crown", color: "text-purple-500" },
+  { name: "Play'n Go", games: "90+ oyun", icon: "Heart", color: "text-red-500" },
+  { name: "Endorphina", games: "70+ oyun", icon: "Pen", color: "text-blue-600" },
+  { name: "Evolution Gaming", games: "50+ oyun", icon: "Infinity", color: "text-gray-600" },
+  { name: "NextGen Gaming", games: "60+ oyun", icon: "Zap", color: "text-yellow-500" }
 ];
 
 const GamesSection = () => {
@@ -110,11 +110,12 @@ const GamesSection = () => {
               Hər bir oyun təsadüfi rəqəmlər generatoru ilə təsdiqlənib və ədalətli oyun təmin edilir.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {providers.map((provider, index) => (
-              <Card key={index} className="text-center p-4 bg-card/50 border-border/30 hover:border-primary/30 transition-all">
-                <div className="font-semibold text-sm text-foreground mb-1">{provider.name}</div>
-                <div className="text-xs text-muted-foreground">{provider.games} oyun</div>
+              <Card key={index} className="text-center p-6 bg-card border-border/50 hover:border-primary/30 transition-all hover:shadow-lg">
+                <Icon name={provider.icon as any} size={48} className={`mx-auto mb-4 ${provider.color}`} />
+                <div className="font-semibold text-lg text-foreground mb-2">{provider.name}</div>
+                <div className="text-sm text-muted-foreground">{provider.games}</div>
               </Card>
             ))}
           </div>
