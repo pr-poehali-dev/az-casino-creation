@@ -13,6 +13,13 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80"></div>
       </div>
       <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="mb-8 animate-fade-in">
+          <img 
+            src="/img/33c80e06-8ea8-42e9-843e-693b698f7a6a.jpg" 
+            alt="Vavada Casino Logo"
+            className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-full shadow-2xl border-4 border-gold-400/30"
+          />
+        </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
           <span className="bg-gradient-to-r from-primary via-gold-400 to-accent bg-clip-text text-transparent">
             Vavada Casino Azərbaycan - Rəsmi Onlayn Kazino
