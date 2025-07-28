@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { openRegistration } from "@/utils/referral";
 
 const HeroSection = () => {
   return (
@@ -43,11 +44,22 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4"
+            onClick={openRegistration}
+            rel="nofollow noopener noreferrer"
+          >
             <Icon name="Play" className="mr-2" />
             İndi Oyna
           </Button>
-          <Button size="lg" variant="outline" className="text-lg px-8 py-4">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="text-lg px-8 py-4"
+            onClick={openRegistration}
+            rel="nofollow noopener noreferrer"
+          >
             <Icon name="Gift" className="mr-2" />
             100% Bonus Al
           </Button>

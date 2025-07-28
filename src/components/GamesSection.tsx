@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { openRegistration } from "@/utils/referral";
 
 const slots = [
   {
@@ -224,7 +225,12 @@ const GamesSection = () => {
                       <Button size="sm" variant="outline" className="flex-1">
                         Demo
                       </Button>
-                      <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                      <Button 
+                        size="sm" 
+                        className="flex-1 bg-primary hover:bg-primary/90"
+                        onClick={openRegistration}
+                        rel="nofollow noopener noreferrer"
+                      >
                         <Icon name="Play" className="mr-1" size={14} />
                         Oyna
                       </Button>

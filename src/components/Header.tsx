@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { openRegistration } from "@/utils/referral";
 
 const Header = () => {
   return (
@@ -38,8 +39,13 @@ const Header = () => {
           </button>
           
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant="outline" size="sm">Giriş</Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-glow">
+            <Button variant="outline" size="sm" onClick={openRegistration}>Giriş</Button>
+            <Button 
+              size="sm" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground animate-glow"
+              onClick={openRegistration}
+              rel="nofollow noopener noreferrer"
+            >
               Qeydiyyat
             </Button>
           </div>
