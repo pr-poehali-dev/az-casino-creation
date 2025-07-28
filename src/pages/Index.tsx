@@ -134,7 +134,14 @@ const Index = () => {
 
       {/* Hero Section - H1 */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10"></div>
+        <div className="absolute inset-0">
+          <img 
+            src="/img/27b2eb13-94bb-4124-bb0a-91ea58178bdd.jpg" 
+            alt="Vavada Casino"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80"></div>
+        </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             <span className="bg-gradient-to-r from-primary via-gold-400 to-accent bg-clip-text text-transparent">
